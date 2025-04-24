@@ -10,6 +10,8 @@ import {
   Avatar
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SellRoundedIcon from '@mui/icons-material/SellRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -42,6 +44,10 @@ const Header = () => {
   const handleCart = () => {
     navigate("/cart");
   };
+
+  const handlemyOrders =() =>{
+    navigate("/my-orders");
+  }
 
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#ffffff", boxShadow: 3 }}>
@@ -101,8 +107,9 @@ const Header = () => {
                 </Typography>
               </Button>
               <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleProfileClose}>
-                <MenuItem onClick={handleCart}>My Cart</MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                <MenuItem onClick={handleCart}><ShoppingCartIcon />    My Cart</MenuItem>
+                <MenuItem onClick ={handlemyOrders}><SellRoundedIcon /> My Orders</MenuItem>
+                <MenuItem onClick={handleLogout}><LogoutRoundedIcon />Logout</MenuItem>
               </Menu>
             </>
           )}
